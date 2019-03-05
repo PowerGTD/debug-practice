@@ -13,7 +13,7 @@ function readyFunction(){
 			href: 'https://twitter.com/cnnbrk/status/382507500903202817'
 		},
 		{
-			text: '',
+			text: 'Stocks hold forth',
 			href: 'https://twitter.com/CNNMoney/status/382497891723804672'
 		},
 		{
@@ -22,19 +22,17 @@ function readyFunction(){
 		}
 	];
 	for (var i = 0; i<data.length; i++) {
-		if (data.text) {
-			var newDiv = document.getElementById("#news");
-			newDiv += "<p><button type='button' class='btn btn-default' datahref='"+data.href+"''><span class='glyphicon glyphicon-star'></span> "+data.text+"</button></p>";
+		if (data[i].text) {
+			var newDiv = document.getElementById("news");
+			newDiv.innerHTML += "<p><button type='button' class='btn btn-default' datahref='"+data[i].href+"''><span class='glyphicon glyphicon-star'></span> "+data[i].text+"</button></p>";
 		}
 	}
 
 	var btnsArray = document.getElementsByTagName("button");
-	for(var i = 0; i<btnsArray.length;i++)
+	for(var x = 0; x<btnsArray.length;x++)
 	{
-		btnsArray[i].addEventListener("click",function(event){
-			if (!target.datahref) {
-				document.location = target.datahref;
-			}
+		btnsArray[x].addEventListener("click",function(event){
+				document.location.href = data[x].href;
 		});
 	}
 }
